@@ -1,0 +1,341 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ffd700; /* Gold */
+  --primary-dark: #d4af37;
+  --primary-light: #ffdf4f;
+  --secondary: #000000; /* Black */
+  --secondary-dark: #1a1a1a;
+  --secondary-light: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --accent: #00ff9d;
+  --matrix-green: #00ff41;
+  --danger: #ff4d4d;
+  --success: #4dff4d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Rajdhani', sans-serif;
+  background-color: var(--secondary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--secondary-dark);
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--secondary-dark);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.font-code {
+  font-family: 'Source Code Pro', monospace;
+}
+
+.gold-text {
+  color: var(--primary);
+}
+
+.matrix-text {
+  color: var(--matrix-green);
+}
+
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.content-container {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.content-container > * {
+  pointer-events: auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes matrixRain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(-5px, -5px);
+  }
+  60% {
+    transform: translate(5px, 5px);
+  }
+  80% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitch {
+  animation: glitch 1s linear infinite;
+  animation-play-state: paused;
+}
+
+.glitch:hover {
+  animation-play-state: running;
+}
+
+.section {
+  min-height: 90vh;
+  padding: 100px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* 3D spaceship hero styles */
+.hero-3d-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow clicking through to content beneath */
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Create a subtle glow on top of the 3D scene */
+.hero-3d-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Fade the edges of the canvas */
+.hero-3d-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 100px 20px #000;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* About 3D model container styles */
+.about-3d-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow clicking through to content */
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Create a subtle glow on top of the 3D scene */
+.about-3d-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Fade the edges of the canvas */
+.about-3d-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 100px 20px #000;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Technic 3D model container styles */
+.technic-model-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  min-height: 450px;
+  background: linear-gradient(135deg, rgba(40, 40, 40, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+              inset 0 0 15px rgba(255, 215, 0, 0.2);
+  margin: 1.5rem 0;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Add subtle glow to technical model */
+.technic-model-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.05) 0%, transparent 70%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* TikTok video container styles */
+.tiktok-embed-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tiktok-embed-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+/* Add subtle gold accent to TikTok embeds */
+.tiktok-embed-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  z-index: 10;
+}
+
+/* Ensure text remains visible above the 3D scene */
+.section {
+  position: relative;
+  z-index: 10;
+}
+
+/* Interactive element styles */
+.spaceship-tooltip {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.85rem;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.spaceship-tooltip.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* CTA Button near the spaceship */
+.cta-button {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--secondary);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3),
+              0 0 10px rgba(255, 215, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(255, 215, 0, 0.7);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive canvas adjustments */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 16px;
+  }
+  
+  /* Make the 3D element smaller on mobile */
+  .hero-3d-container {
+    height: 50vh;
+    top: 25vh;
+  }
+  
+  /* Adjust CTA button size on mobile */
+  .cta-button {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+} 
