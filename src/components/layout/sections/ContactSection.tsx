@@ -5,7 +5,7 @@ const socialLinks = [
   {
     name: 'GitHub',
     icon: '💻',
-    url: 'https://github.com/nahommerhatsyon',
+    url: 'https://github.com/NHRICH',
     color: '#6e5494'
   },
   {
