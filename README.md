@@ -110,7 +110,6 @@ npm run build
 npm run preview
 ```
 
-## 🎨 Design Inspiration
 
 ## 👤 Author
 
