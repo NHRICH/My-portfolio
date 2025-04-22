@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
-import { useGLTF, PerspectiveCamera } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
+// import { PerspectiveCamera } from '@react-three/drei' // Uncomment if needed
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 
@@ -145,4 +146,4 @@ export default function TechnicModel() {
 }
 
 // Pre-load the model
-useGLTF.preload('/thechnic_model.gltf') 
+useGLTF.preload('/thechnic_model.gltf')

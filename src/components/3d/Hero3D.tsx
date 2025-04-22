@@ -16,7 +16,7 @@ import SpaceshipModel from './SpaceshipModel'
 export default function Hero3D() {
   const [loading, setLoading] = useState(true)
   const [perfTarget, setPerfTarget] = useState(1)
-  const [enableEffects, setEnableEffects] = useState(false) // Disable effects while debugging
+  const [_, setEnableEffects] = useState(false) // Disable effects while debugging
   
   // Handle responsive adjustments and performance optimizations
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function Hero3D() {
   }, [loading])
   
   // Create a proper Vector2 for ChromaticAberration
-  const chromaticAberrationOffset = new THREE.Vector2(0.0005, 0.0005)
+  // // const chromaticAberrationOffset = new THREE.Vector2(0.0005, 0.0005) // Commented out unused variable // Commented out unused variable
   
   return (
     <div 

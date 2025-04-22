@@ -7,7 +7,7 @@ export default function AboutModel() {
   const groupRef = useRef<THREE.Group>(null)
   const [modelLoaded, setModelLoaded] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
-  const { camera } = useThree()
+  // const { /* /* came */ra */ } = useThree() // Commented out unused variable // Commented out unused variable
   
   // Load the model
   const { scene } = useGLTF('/about-model.gltf')

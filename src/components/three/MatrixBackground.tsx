@@ -9,7 +9,7 @@ const MatrixSymbol = ({ position, color, size, speed }: { position: [number, num
     return String.fromCharCode(Math.floor(Math.random() * 94) + 33)
   }, [])
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (symbolRef.current) {
       symbolRef.current.position.y -= delta * speed
       

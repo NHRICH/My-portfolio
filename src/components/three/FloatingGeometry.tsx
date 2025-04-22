@@ -23,8 +23,8 @@ const FloatingGeometry = ({
   rotation = [0.01, 0.01, 0]
 }: FloatingGeometryProps) => {
   const meshRef = useRef<THREE.Mesh>(null)
-  const initialPosition = useRef(position)
-  const initialY = useRef(position[1])
+  // // const initialPosition = useRef(position) // Commented out unused variable
+  const initialY = useRef(position[1]) // Commented out unused variable
   const time = useRef(Math.random() * 100)
 
   useFrame((state, delta) => {
@@ -71,4 +71,4 @@ const FloatingGeometry = ({
   )
 }
 
-export default FloatingGeometry 
+export default FloatingGeometry

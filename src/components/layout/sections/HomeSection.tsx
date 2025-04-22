@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+// // import { useRef } from 'react' - Removed unused import - Removed unused import
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import Hero3D from '../../3d/Hero3D'

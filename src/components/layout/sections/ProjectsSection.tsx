@@ -206,7 +206,7 @@ const ProjectsSection = () => {
           className="text-center mt-16"
         >
           <motion.a
-            href="https://www.tiktok.com/@avmedia_et?is_from_webapp=1&sender_device=pc" 
+            href="https://www.youtube.com/@nahomdev/shorts" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-transparent text-primary font-bold rounded-sm border-2 border-primary 
@@ -214,7 +214,7 @@ const ProjectsSection = () => {
             whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 215, 0, 0.5)" }}
             whileTap={{ scale: 0.95 }}
           >
-            View My Agency
+            View More on YouTube
           </motion.a>
         </motion.div>
       </div>
