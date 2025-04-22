@@ -112,12 +112,6 @@ npm run preview
 
 ## 🎨 Design Inspiration
 
-Inspired by [David Hckh Portfolio](https://www.david-hckh.com) with a unique luxurious black and gold theme with Matrix-style effects.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 👤 Author
 
 **Nahom Merhatsyon**
